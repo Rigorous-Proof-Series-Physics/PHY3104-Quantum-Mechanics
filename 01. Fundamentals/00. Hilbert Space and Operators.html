@@ -14607,15 +14607,64 @@ $$</p>
 
         <details id="hermitian-operator-real-eigenvalues" class="math-block theorem">
         <summary class="math-block-summary">
-        <h3 id="Hermitian-Operators-Have-Real-Eigenvalues"><span class="math-number">2.1 Theorem: Hermitian Operators Have Real Eigenvalues</span></h3><p>If</p>
+        <h3 id="Hermitian-Operators-Have-Real-Eigenvalues"><span class="math-number">2.1 Theorem: Hermitian Operators Have Real Eigenvalues</span></h3><p>Let</p>
 <p>$$
-\Omega^\dagger
-=
-\Omega,
+\Omega^\dagger = \Omega
 $$</p>
-<p>then every eigenvalue of $\Omega$ is real.</p>
+<p>and suppose</p>
+<p>$$
+\Omega |u\rangle = a |u\rangle.
+$$</p>
+<p>Then the eigenvalue</p>
+<p>$$
+a
+$$</p>
+<p>is real.</p>
         </summary>
 
+        
+        <div class="proof-content">
+        <p>Starting from the eigenvalue equation,</p>
+<p>$$
+\Omega |u\rangle = a |u\rangle,
+$$</p>
+<p>take the expectation value with respect to</p>
+<p>$$
+\langle u|.
+$$</p>
+<p>Then</p>
+<p>$$
+\langle u|\Omega|u\rangle
+=
+a \langle u|u\rangle.
+$$</p>
+<p>Since $\Omega$ is Hermitian,</p>
+<p>$$
+\langle u|\Omega|u\rangle
+=
+\langle u|\Omega|u\rangle^*.
+$$</p>
+<p>Therefore,</p>
+<p>$$
+a\langle u|u\rangle
+=
+a^*\langle u|u\rangle.
+$$</p>
+<p>Hence,</p>
+<p>$$
+(a-a^*)\langle u|u\rangle = 0.
+$$</p>
+<p>Because</p>
+<p>$$
+\langle u|u\rangle &gt; 0,
+$$</p>
+<p>it follows that</p>
+<p>$$
+a=a^*.
+$$</p>
+<p>Therefore the eigenvalue is real.</p>
+<!-- proof:end -->
+        </div>
         
 
         <div class="math-block-footer">
@@ -14633,9 +14682,72 @@ $$</p>
 
         <details id="orthogonality-of-hermitian-eigenspaces" class="math-block theorem">
         <summary class="math-block-summary">
-        <h3 id="Orthogonality-of-Eigenspaces-of-Hermitian-Operators"><span class="math-number">2.2 Theorem: Orthogonality of Eigenspaces of Hermitian Operators</span></h3><p>Eigenvectors of a Hermitian operator corresponding to distinct eigenvalues are orthogonal.</p>
+        <h3 id="Orthogonality-of-Eigenspaces-of-Hermitian-Operators"><span class="math-number">2.2 Theorem: Orthogonality of Eigenspaces of Hermitian Operators</span></h3><p>Let</p>
+<p>$$
+\Omega^\dagger = \Omega
+$$</p>
+<p>and suppose</p>
+<p>$$
+\Omega |u\rangle = a |u\rangle,
+$$</p>
+<p>$$
+\Omega |u'\rangle = a' |u'\rangle,
+$$</p>
+<p>with</p>
+<p>$$
+a \ne a'.
+$$</p>
+<p>Then</p>
+<p>$$
+\langle u'|u\rangle = 0.
+$$</p>
         </summary>
 
+        
+        <div class="proof-content">
+        <p>Using the first eigenvalue equation,</p>
+<p>$$
+\langle u'|\Omega|u\rangle
+=
+a\langle u'|u\rangle.
+$$</p>
+<p>Using the second eigenvalue equation,</p>
+<p>$$
+\langle u|\Omega|u'\rangle
+=
+a'\langle u|u'\rangle.
+$$</p>
+<p>Since $\Omega$ is Hermitian,</p>
+<p>$$
+\langle u|\Omega|u'\rangle
+=
+\langle u'|\Omega|u\rangle^*.
+$$</p>
+<p>Therefore,</p>
+<p>$$
+a'\langle u|u'\rangle
+=
+a^*\langle u|u'\rangle.
+$$</p>
+<p>Because the eigenvalues of Hermitian operators are real,</p>
+<p>$$
+a^* = a.
+$$</p>
+<p>Hence,</p>
+<p>$$
+(a-a')\langle u'|u\rangle = 0.
+$$</p>
+<p>Since</p>
+<p>$$
+a \ne a',
+$$</p>
+<p>it follows that</p>
+<p>$$
+\langle u'|u\rangle = 0.
+$$</p>
+<p>Therefore the eigenvectors are orthogonal.</p>
+<!-- proof:end -->
+        </div>
         
 
         <div class="math-block-footer">
