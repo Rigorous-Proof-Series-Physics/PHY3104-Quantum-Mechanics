@@ -13529,8 +13529,8 @@ div#notebook {
 <li class="math-index-block math-index-proposition"><a href="#double-hermitian-conjugation"><span class="math-number">1.1.4.1</span> Proposition: Double Hermitian Conjugation</a></li>
 <li class="math-index-block math-index-proposition"><a href="#antilinearity-hermitian-conjugation"><span class="math-number">1.1.4.2</span> Proposition: Antilinearity of Hermitian Conjugation</a></li>
 <li class="math-index-subsection"><a href="#subsection-1-1-5">Subsection 1.1.5 — Gram–Schmidt Orthogonalization</a></li>
-<li class="math-index-block math-index-definition"><a href="#gram-schmidt-procedure"><span class="math-number">1.1.5.1</span> Definition: Gram–Schmidt Procedure</a></li>
-<li class="math-index-block math-index-theorem"><a href="#schwarz-inequality"><span class="math-number">1.1.5.1</span> Theorem: Schwarz Inequality</a></li>
+<li class="math-index-block math-index-definition"><a href="#gram-schmidt-procedure"><span class="math-number">1.1.5.1</span> Definition: Definition — Gram–Schmidt Procedure</a></li>
+<li class="math-index-block math-index-theorem"><a href="#schwarz-inequality"><span class="math-number">1.1.5.1</span> Theorem: Theorem — Schwarz Inequality</a></li>
 </ul>
 </nav>
 </div>
@@ -14169,11 +14169,86 @@ $$</p>
 
         <details id="gram-schmidt-procedure" class="math-block definition">
         <summary class="math-block-summary">
-        <h3 id="Gram%E2%80%93Schmidt-Procedure"><span class="math-number">1.1.5.1 Definition: Gram–Schmidt Procedure</span></h3><p>Given linearly independent vectors</p>
+        <h3 id="Definition-%E2%80%94-Gram%E2%80%93Schmidt-Procedure"><span class="math-number">1.1.5.1 Definition: Definition — Gram–Schmidt Procedure</span></h3><p>Let</p>
 <p>$$
-|I\rangle, |II\rangle, |III\rangle,\dots,
+|I\rangle, |II\rangle, |III\rangle,\dots
 $$</p>
-<p>an orthonormal basis can be constructed recursively by subtracting projections and normalizing.</p>
+<p>be a linearly independent set of vectors.</p>
+<p>The Gram–Schmidt procedure constructs an orthonormal basis</p>
+<p>$$
+|1\rangle, |2\rangle, |3\rangle,\dots
+$$</p>
+<p>by recursively subtracting projections onto the previously constructed orthonormal vectors and then normalizing.</p>
+<p>The first normalized vector is</p>
+<p>$$
+|1\rangle
+=
+\frac{|I\rangle}{\sqrt{\langle I|I\rangle}}.
+$$</p>
+<p>Hence,</p>
+<p>$$
+\langle 1|1\rangle = 1.
+$$</p>
+<p>To construct the second orthogonal vector, subtract from</p>
+<p>$$
+|II\rangle
+$$</p>
+<p>its component parallel to</p>
+<p>$$
+|1\rangle:
+$$</p>
+<p>$$
+|2'\rangle
+=
+|II\rangle
+-
+|1\rangle\langle 1|II\rangle.
+$$</p>
+<p>This guarantees orthogonality:</p>
+<p>$$
+\langle 1|2'\rangle
+=
+0.
+$$</p>
+<p>Normalize to obtain</p>
+<p>$$
+|2\rangle
+=
+\frac{|2'\rangle}
+{\sqrt{\langle 2'|2'\rangle}}.
+$$</p>
+<p>For the third vector, subtract the components parallel to both</p>
+<p>$$
+|1\rangle
+\quad\text{and}\quad
+|2\rangle:
+$$</p>
+<p>$$
+|3'\rangle
+=
+|III\rangle
+-
+|1\rangle\langle 1|III\rangle
+-
+|2\rangle\langle 2|III\rangle.
+$$</p>
+<p>Then</p>
+<p>$$
+\langle 1|3'\rangle
+=
+\langle 2|3'\rangle
+=
+0.
+$$</p>
+<p>Normalize:</p>
+<p>$$
+|3\rangle
+=
+\frac{|3'\rangle}
+{\sqrt{\langle 3'|3'\rangle}}.
+$$</p>
+<p>Proceeding recursively, one obtains an orthonormal basis spanning the same vector space as the original linearly independent set.</p>
+<p>Linearly independence guarantees that no constructed vector vanishes during the procedure.</p>
         </summary>
 
         
@@ -14193,57 +14268,217 @@ $$</p>
 
         <details id="schwarz-inequality" class="math-block theorem">
         <summary class="math-block-summary">
-        <h3 id="Schwarz-Inequality"><span class="math-number">1.1.5.1 Theorem: Schwarz Inequality</span></h3><p>For any vectors</p>
+        <h3 id="Theorem-%E2%80%94-Schwarz-Inequality"><span class="math-number">1.1.5.1 Theorem: Theorem — Schwarz Inequality</span></h3><p>For any vectors</p>
 <p>$$
+
 |V\rangle,
+
 |W\rangle,
+
 $$</p>
 <p>one has</p>
 <p>$$
+
 |\langle V|W\rangle|^2
+
 \le
+
 \langle V|V\rangle
+
 \langle W|W\rangle.
+
 $$</p>
+<p>Equality holds if and only if the vectors are linearly dependent.</p>
         </summary>
 
         
         <div class="proof-content">
-        <p>Define</p>
+        <p>The proof follows the same geometric idea underlying the Gram–Schmidt procedure.</p>
+<p>Construct a vector orthogonal to</p>
 <p>$$
-|Z\rangle
-=
+
+|W\rangle
+
+$$</p>
+<p>by subtracting from</p>
+<p>$$
+
 |V\rangle
+
+$$</p>
+<p>its projection along</p>
+<p>$$
+
+|W\rangle:
+
+$$</p>
+<p>$$
+
+|Z\rangle
+
+=
+
+|V\rangle
+
 -
-\frac{\langle W|V\rangle}{\langle W|W\rangle}
+
+\frac{\langle W|V\rangle}
+
+{\langle W|W\rangle}
+
 |W\rangle.
+
+$$</p>
+<p>This is precisely the Gram–Schmidt orthogonalization step.</p>
+<p>Indeed,</p>
+<p>$$
+
+\langle W|Z\rangle
+
+=
+
+\langle W|V\rangle
+
+-
+
+\frac{\langle W|V\rangle}
+
+{\langle W|W\rangle}
+
+\langle W|W\rangle
+
+=
+
+0.
+
+$$</p>
+<p>Since norms are nonnegative in an inner product space,</p>
+<p>$$
+
+\langle Z|Z\rangle \ge 0.
+
+$$</p>
+<p>Expanding:</p>
+<p>$$
+
+\langle Z|Z\rangle
+
+=
+
+\left\langle
+
+V
+
+-
+
+\frac{\langle W|V\rangle}{\langle W|W\rangle}W
+
+\middle|
+
+V
+
+-
+
+\frac{\langle W|V\rangle}{\langle W|W\rangle}W
+
+\right\rangle.
+
+$$</p>
+<p>Using linearity and Hermitian conjugation,</p>
+<p>$$
+
+\langle Z|Z\rangle
+
+=
+
+\langle V|V\rangle
+
+-
+
+\frac{
+
+\langle V|W\rangle\langle W|V\rangle
+
+}{
+
+\langle W|W\rangle
+
+}.
+
 $$</p>
 <p>Since</p>
 <p>$$
-\langle Z|Z\rangle \ge 0,
+
+\langle V|W\rangle
+
+=
+
+\langle W|V\rangle^*,
+
 $$</p>
-<p>expanding the inner product yields</p>
+<p>we obtain</p>
 <p>$$
+
+\langle Z|Z\rangle
+
+=
+
 \langle V|V\rangle
+
 -
+
 \frac{
+
 |\langle V|W\rangle|^2
+
 }{
+
 \langle W|W\rangle
+
 }
+
 \ge 0.
+
 $$</p>
 <p>Multiplying by</p>
 <p>$$
-\langle W|W\rangle
+
+\langle W|W\rangle,
+
 $$</p>
 <p>gives</p>
 <p>$$
+
 |\langle V|W\rangle|^2
+
 \le
+
 \langle V|V\rangle
+
 \langle W|W\rangle.
+
 $$</p>
+<p>Equality holds exactly when</p>
+<p>$$
+
+|Z\rangle = |0\rangle,
+
+$$</p>
+<p>that is,</p>
+<p>$$
+
+|V\rangle
+
+=
+
+\frac{\langle W|V\rangle}
+
+{\langle W|W\rangle}
+
+|W\rangle,
+
+$$</p>
+<p>meaning the vectors are linearly dependent.</p>
 <!-- proof:end -->
         </div>
         
